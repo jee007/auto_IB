@@ -22,9 +22,6 @@ function renameDownloadedFilesFinal2(folderId) {
   countDownBeforeExecution(1, 10, () => uploadSpecificFilesToGoogleSheet(folderId));
 }
 
-function getFolderIdFromSheet(folderId) {
-}
-
 function countDownBeforeExecution(start, end, callback) {
   for (let i = start; i <= end; i++) {
     Logger.log(`Counting: ${i}`);
