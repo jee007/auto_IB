@@ -30,8 +30,7 @@ function countDownBeforeExecution(start, end, callback) {
   callback();
 }
 
-function uploadSpecificFilesToGoogleSheet() {
-  const folderId = getFolderIdFromSheet();
+function uploadSpecificFilesToGoogleSheet(folderId) {
   const spreadsheetId = "1qOkZrhiT-TkOKNcK5kmkK_rvH7uTOvfZVljtKJ0eN0U";
   const fileMappings = [
     { fileName: "Upload_ASN_PBs.csv", sheetName: "Upload_ASN_PBs", timestampCell: "B1" },
@@ -76,7 +75,7 @@ function uploadSpecificFilesToGoogleSheet() {
     }
   });
 
-  countDownBeforeExecution(1, 10, deleteOldFiles);
+  countDownBeforeExecution(1, 10, deleteOldFiles(folderId));
 }
 
 function updateTimestamp(spreadsheetId, timestampCell, message) {
@@ -90,7 +89,6 @@ function updateTimestamp(spreadsheetId, timestampCell, message) {
 }
 
 function deleteOldFiles(folderId) {
-  const folderId = getFolderIdFromSheet();
   const folder = DriveApp.getFolderById(folderId);
   const files = folder.getFiles();
 
