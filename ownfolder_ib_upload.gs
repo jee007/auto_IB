@@ -75,7 +75,7 @@ function uploadSpecificFilesToGoogleSheet(folderId) {
     }
   });
 
-  countDownBeforeExecution(1, 10, () => deleteOldFiles(folderId));
+  countDownBeforeExecution(1, 5, () => deleteOldFiles(folderId));
 }
 
 function updateTimestamp(spreadsheetId, timestampCell, message) {
