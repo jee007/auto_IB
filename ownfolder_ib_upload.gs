@@ -19,7 +19,7 @@ function renameDownloadedFilesFinal2(folderId) {
     }
   }
 
-  //countDownBeforeExecution(1, 5, () => uploadSpecificFilesToGoogleSheet(folderId));
+  countDownBeforeExecution(1, 5, () => uploadSpecificFilesToGoogleSheet(folderId));
 }
 
 function countDownBeforeExecution(start, end, callback) {
